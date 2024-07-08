@@ -1,0 +1,34 @@
+version: '3.9'
+services:
+  backend:
+    container_name: 'kpd-backend'
+    build: 
+      context: backend
+      dockerfile: Dockerfile
+    image: kpd-backend
+    ports:
+      - 4000:3000
+    env_file: 
+      - .env
+
+  frontend:
+    container_name: 'kpd-frontend'
+    build: 
+      context: frontend
+      dockerfile: Dockerfile
+    image: kpd-frontend
+    ports:
+      - 5000:3000
+    
+  postgres:
+    container_name: 'kpd-postgres'
+    image: postgres
+    env_file: 
+      - .env
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: always
+    ports: 
+      - '8081:8080'
