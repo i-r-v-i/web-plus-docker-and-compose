@@ -32,7 +32,7 @@ services:
     container_name: 'kpd-postgres'
     image: postgres
     volumes:
-       - postgres_data:/var/lib/postgresql/data/pgdata
+       - postgres_data:/data/postgres
     env_file: 
       - .env
     networks:
