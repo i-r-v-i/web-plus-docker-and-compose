@@ -32,7 +32,7 @@ services:
     container_name: 'kpd-postgres'
     image: postgres
     volumes:
-      - ./pg-data:/var/lib/postgresql/data
+       - postgres_data:/var/lib/postgresql/data/pgdata
     env_file: 
       - .env
     networks:
@@ -44,7 +44,8 @@ services:
     restart: always
     ports: 
       - '8081:8080'
-
+volumes:
+  postgres_data:
 networks:
   frontend:
   backend:
