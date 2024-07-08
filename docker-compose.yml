@@ -45,6 +45,6 @@ services:
     ports: 
       - '8081:8080'
 
-  networks:
-    frontend:
-    backend:
+networks:
+  frontend:
+  backend:
